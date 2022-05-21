@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" th:src="@{images/ico.png}" type="png">
+    <script type="text/javascript" src="js/headfoot.js"></script>
+    <title>Каталог</title>
+</head>
+<body>
+    <div class="head"></div>
+    <h2 style="text-align: center;">Корзина</h2>
+    <hr>
+    <div class="row mb-4">
+        <div class="col-10" style="padding-left: 90px;">Товары</div>
+        <div class="col-2" style="padding-left: 28px;">Цена</div>
+    </div>
+    <hr>
+    <div>
+        <form th:each="i: ${products}"class="row inCart" action="/removeProduct">
+            <div class="col-2"><img th:src="${i.photo}" alt=""></div>
+            <div class="col-5 mt-3" th:text="${i.name}"></div>
+            <div class="col-3 num">
+                1 шт.
+                <input type="hidden" th:value="${i.id}" name="id">
+            </div>
+            <div class="col-2" style="font-size: 24px; text-align: center;">
+                <div class="row">
+                    <div class="col price"><b th:text="${i.price}"></b></div>
+                    <button class="col btn-close" type="submit"></button>
+                </div>
+            </div>
+        </form>
+        <div class="cost" style="width:100%; text-align: right;"><b>Итого <span th:text="${cart.cost}+'Р'"></span></b></div>
+        <form class="submit mt-3" style="width: 100%; text-align: right;" action="/createOrder">
+            <input type="hidden" th:value="${products}">
+            <button class="btn-submit submit">Оформить заказ</button>
+        </form>
+    </div>
+    <div class="foot" style="width: 100%;"></div>
+</body>
+</html>
