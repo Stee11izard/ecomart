@@ -1,0 +1,13 @@
+package com.coursework.ecomart.repositories;
+
+import java.util.List;
+
+import org.springframework.data.repository.CrudRepository;
+
+import com.coursework.ecomart.entities.Products;
+
+public interface ProductsRepo extends CrudRepository<Products, Long> {
+    List<Products> findAll();
+    List<Products> findByCategory(String category);
+    Products findById(int id);
+}
