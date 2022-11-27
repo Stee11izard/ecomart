@@ -1,59 +1,57 @@
 package coursework.ecomarket.entities;
 
-import java.util.List;
-import java.util.Objects;
-import java.util.Set;
+import lombok.Data;
 
-import javax.persistence.CascadeType;
+import java.util.Objects;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.NotFound;
-import org.hibernate.annotations.NotFoundAction;
-
 @Entity
+@Data
 @Table(name="products")
 public class Products {
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
+    @Column(name="active")
+    private boolean active;
     @Column(name="name")
     private String name;
     @Column(name="price")
-    private int price;
+    private float price;
     @Column(name="discription")
     private String discription;
     @Column(name = "category")
     private String category;
     @Column(name="photo")
     private String photo;
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "product", cascade = CascadeType.MERGE, orphanRemoval = true)
-    @NotFound(action = NotFoundAction.IGNORE)
-    private List<CartProduct> carts;
-    @ManyToMany(mappedBy = "prod")
-    private Set<Order> order;
-
+    //@OneToMany(fetch = FetchType.EAGER, mappedBy = "product", cascade = CascadeType.MERGE, orphanRemoval = true)
+    //@NotFound(action = NotFoundAction.IGNORE)
+    //private List<CartProduct> carts;
+    //@ManyToMany(mappedBy = "prod")
+    //private Set<Order> order;
     public String getName() {
         return name;
     }
-    public int getPrice() {
+    public void setName(String name) {
+        this.name = name;
+    }
+    public float getPrice() {
         return price;
     }
-    public String getDiscription() {
-        return discription;
-    }
-    public List<CartProduct> getCart() {
-        return carts;
-    }
+//    public List<CartProduct> getCart() {
+//        return carts;
+//    }
     public String getCategory() {
         return category;
+    }
+    public void setCategory(String category) {
+        this.category = category;
     }
     public int getId() {
         return id;
@@ -61,8 +59,17 @@ public class Products {
     public String getPhoto() {
         return photo;
     }
-    public void addCart(Carts cart, Products product) {
-        carts.add(new CartProduct(cart, product));
+    public void setPhoto(String photo) {
+        this.photo = "../../images/products/" + photo;
+    }
+//    public void addCart(Carts cart, Products product) {
+//        carts.add(new CartProduct(cart, product));
+//    }
+    public Boolean getActive() {
+        return active;
+    }
+    public void setActive(Boolean active) {
+        this.active = active;
     }
 
     @Override
@@ -72,7 +79,7 @@ public class Products {
         Products product = (Products) o;
         return Objects.equals(id, product.getId());
     }
- 
+
     @Override
     public int hashCode() {
         return Objects.hash(id);

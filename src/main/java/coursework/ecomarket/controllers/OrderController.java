@@ -26,6 +26,6 @@ public class OrderController {
             cost += i.getPrice();
         }
         model.addAttribute("cost", cost);
-        return "html/orderPage";
+        return "orderPage";
     }
 }

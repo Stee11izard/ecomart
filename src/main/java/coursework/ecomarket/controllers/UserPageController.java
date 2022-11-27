@@ -13,6 +13,6 @@ public class UserPageController {
     public String UserPage(Model model) {
         model.addAttribute("client", (Client)SecurityContextHolder.getContext().getAuthentication().getPrincipal());
         model.addAttribute("orders", ((Client)SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getOrders());
-        return "html/userPage";
+        return "userPage";
     }
 }

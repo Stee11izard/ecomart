@@ -7,14 +7,22 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class NavController {
     @GetMapping("/")
     public String HomePage() {
-        return "html/index";
+        return "index";
     }
     @GetMapping("/about")
     public String AboutPage() {
-        return "html/aboutus";
+        return "aboutus";
     }
     @GetMapping("/delivery")
     public String Delivery() {
-        return "html/delivery";
+        return "delivery";
+    }
+    @GetMapping("/products")
+    public String Products() {
+        return "products";
+    }
+    @GetMapping("/adminProducts/new")
+    public String ProductsNew() {
+        return "productNew";
     }
 }

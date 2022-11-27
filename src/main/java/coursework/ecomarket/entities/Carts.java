@@ -26,7 +26,7 @@ public class Carts {
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int id;
     @Column(name="cost")
-    private int cost;
+    private float cost;
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "cart", cascade = CascadeType.MERGE, orphanRemoval = true)
     @NotFound(action = NotFoundAction.IGNORE)
     private Set<CartProduct> products = new HashSet<>();
@@ -44,10 +44,10 @@ public class Carts {
     public int getId() {
         return id;
     }
-    public int getCost() {
+    public float getCost() {
         return cost;
     }
-    public void setCost(int cost) {
+    public void setCost(float cost) {
         this.cost = cost;
     }
     public Set<CartProduct> getProducts() {
@@ -66,7 +66,7 @@ public class Carts {
  
             if (cartProd.getCart().equals(this) && cartProd.getProduct().equals(prod)) {
                 iterator.remove();
-                cartProd.getProduct().getCart().remove(cartProd);
+                //cartProd.getProduct().getCart().remove(cartProd);
                 cartProd.setCart(null);
                 cartProd.setProduct(null);
                 return cartProd;

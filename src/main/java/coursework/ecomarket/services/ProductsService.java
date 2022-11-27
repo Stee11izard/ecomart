@@ -10,13 +10,6 @@ import org.springframework.stereotype.Service;
 import coursework.ecomarket.entities.Products;
 import coursework.ecomarket.repositories.ProductsRepo;
 
-/*
-interface productService {
-    public List<Products> showByCategory(String category);
-    public Products findById(int id);
-}
- */
-
 @Service
 public class ProductsService {
     @Autowired

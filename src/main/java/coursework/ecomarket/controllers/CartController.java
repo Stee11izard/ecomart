@@ -37,7 +37,7 @@ public class CartController {
 
     @GetMapping("/order")
     public String OrderPage() {
-        return "html/orderPage.html";
+        return "orderPage.html";
     }
     @GetMapping("/cart")
     public String CartPage(Model model) {
@@ -50,7 +50,7 @@ public class CartController {
         }
         model.addAttribute("cart", cliCart);
         model.addAttribute("products", products);
-        return "html/cartPage.html";
+        return "cartPage.html";
     }
     @GetMapping("/addProduct")
     public String addProduct(@RequestParam("id") String id) {

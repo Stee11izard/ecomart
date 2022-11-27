@@ -4,6 +4,6 @@ import org.springframework.data.repository.CrudRepository;
 
 import coursework.ecomarket.entities.UserRole;
 
-public interface RoleRepo extends CrudRepository<UserRole, Long>{
+public interface RoleRepo extends CrudRepository<UserRole, Integer>{
     
 }

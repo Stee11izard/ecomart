@@ -20,7 +20,7 @@ public class LoginController {
     
     @GetMapping("/registration") 
     public String Registration() {
-        return "html/registrationForm.html";
+        return "registrationForm.html";
     }
     @PostMapping("/registration")
     public String newClient(Model model, @RequestParam("name") String name, @RequestParam("surname") String surname, @RequestParam("email") String email, @RequestParam("username") String username, @RequestParam("password") String password) {
@@ -29,6 +29,6 @@ public class LoginController {
     }
     @GetMapping("/login")
     public String Login(Model model) {
-        return "html/loginForm.html";
+        return "loginForm.html";
     }
 }
