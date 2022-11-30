@@ -30,11 +30,7 @@ public class Products {
     private String category;
     @Column(name="photo")
     private String photo;
-    //@OneToMany(fetch = FetchType.EAGER, mappedBy = "product", cascade = CascadeType.MERGE, orphanRemoval = true)
-    //@NotFound(action = NotFoundAction.IGNORE)
-    //private List<CartProduct> carts;
-    //@ManyToMany(mappedBy = "prod")
-    //private Set<Order> order;
+
     public String getName() {
         return name;
     }
@@ -44,9 +40,7 @@ public class Products {
     public float getPrice() {
         return price;
     }
-//    public List<CartProduct> getCart() {
-//        return carts;
-//    }
+
     public String getCategory() {
         return category;
     }
@@ -62,9 +56,7 @@ public class Products {
     public void setPhoto(String photo) {
         this.photo = "../../images/products/" + photo;
     }
-//    public void addCart(Carts cart, Products product) {
-//        carts.add(new CartProduct(cart, product));
-//    }
+
     public Boolean getActive() {
         return active;
     }

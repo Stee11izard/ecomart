@@ -50,13 +50,11 @@ public class Config {
     public EntityManagerFactory entityManagerFactory() {
         HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
         vendorAdapter.setGenerateDdl(true);
-
         LocalContainerEntityManagerFactoryBean factoryBean = new LocalContainerEntityManagerFactoryBean();
         factoryBean.setJpaVendorAdapter(vendorAdapter);
         factoryBean.setPackagesToScan("coursework.ecomarket.entities");
         factoryBean.setDataSource(dataSource());
         factoryBean.afterPropertiesSet();
-
         return factoryBean.getObject();
     }
 

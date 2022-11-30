@@ -12,7 +12,6 @@ import org.springframework.stereotype.Service;
 
 import coursework.ecomarket.entities.Client;
 import coursework.ecomarket.repositories.ClientRepo;
-import coursework.ecomarket.repositories.RoleRepo;
 
 @Service
 public class UserDetailServiceImpl implements UserDetailsService {
@@ -20,8 +19,6 @@ public class UserDetailServiceImpl implements UserDetailsService {
     private EntityManager entityManager;
     @Autowired
     ClientRepo cRepo;
-    @Autowired
-    RoleRepo rRepo;
     @Autowired
     BCryptPasswordEncoder bCryptPasswordEncoder;
 

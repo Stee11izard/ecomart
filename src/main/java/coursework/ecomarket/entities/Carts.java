@@ -25,11 +25,14 @@ public class Carts {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int id;
+
     @Column(name="cost")
     private float cost;
+
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "cart", cascade = CascadeType.MERGE, orphanRemoval = true)
     @NotFound(action = NotFoundAction.IGNORE)
     private Set<CartProduct> products = new HashSet<>();
+
     @OneToOne(mappedBy = "cart")
     private Client client;
 
@@ -38,6 +41,7 @@ public class Carts {
         this.client = cli;
         this.cost=0;
     }
+
     public Client getClient() {
         return client;
     }
@@ -74,6 +78,7 @@ public class Carts {
         }
         return null;
     }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
